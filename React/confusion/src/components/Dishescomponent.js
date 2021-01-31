@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import {Media,Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle} from 'reactstrap';
-
+import {Media,Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle, CardSubtitle, CardFooter} from 'reactstrap';
+import {Link} from 'react-router-dom';
 class DishComponent extends Component {
     
     render()
@@ -9,7 +9,7 @@ class DishComponent extends Component {
 
         if(this.props.dish!=null)
         {  
-           const comments =this.props.dish.comments.map(comment=>{
+           const comments =this.props.comments.map(comment=>{
                return (
                    <div key={comment.id} >
                        <Media tag="li"> 
@@ -26,16 +26,24 @@ class DishComponent extends Component {
             return(
                 <div className="container">
                 <div className="row ">
-                <div className="col-12 col-md-5 m-1">  
-                    <Card onClick={() => this.props.onClick(null)}> 
+                <div className="col-12 col-md-5 m-2">  
+                    <Card> 
+                        <Link to="/menu">
                     <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name}></CardImg>
+                    </Link>
+                    
                     <CardBody>
-                    <CardTitle>{this.props.dish.name}</CardTitle>
-                    <CardText>{this.props.dish.description}</CardText>
+                    <CardSubtitle>
+                    <div ><b>{this.props.dish.name}</b></div>
+                    </CardSubtitle>
                     </CardBody>
+                   
+                   <CardFooter>
+                   {this.props.dish.description}
+                   </CardFooter>
                     </Card>
                 </div>
-                <div className="col-12 col-md-5 m-1">
+                <div className="col-12 col-md-5 m-2">
                 <h3>COMMENTS</h3>
                      
                     

@@ -1,4 +1,6 @@
-
+body{
+    /* background-color:rosybrown; */
+}
 .row-header{
     margin:0px auto;
     padding:0px auto;
@@ -11,15 +13,9 @@
     min-height:400px;
 }
 
-.footer{
-    background-color: #D1C4E9;
-    margin:0px auto;
-    padding: 20px 0px 20px 0px;
-}
-.jumbotron {
-    padding:70px 30px 70px 30px;
-    margin:0px auto;
-    color:floralwhite;
+.footer
+{
+    background-color:#eee;
 }
 
 
@@ -30,14 +26,21 @@ address{
 }
 
 .navbar-dark {
-    background-color:darkred;
+    
     margin:0px;
     
 }
 
-.navbar-brand{
-    color: wheat;
+
+
+.nav-link,.ml-auto{
+    margin-right:20px;
+    text-align: end;
+    margin-left:20px;
+    
+    
 }
-.navbar-brand:hover{
-    color:black;
+span{
+   
 }
+
