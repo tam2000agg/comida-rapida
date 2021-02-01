@@ -34,18 +34,24 @@ class Header extends Component{
             + " Remember: " + this.remember.checked);
         event.preventDefault();
 
-    }
-    render(){
-       const  fun=()=>
-    {
-        document.querySelector('.jumbotron').style.backgroundColor="red" ;
+     }
+      fun()
+    { 
+        if(document.querySelector('.jumbotron').style.backgroundColor !=="red") 
+        document.querySelector('.jumbotron').style.backgroundColor="red";
+        
+       else
+        document.querySelector('.jumbotron').style.backgroundColor="lightgrey";
          
 
     }
+    render(){
+      
+        
         return(
             // <> REACT FRAGMENTS
             <>
-             <Navbar light   className=" bg-secondary" expand="md">
+             <Navbar light   className=" bg-secondary shadow" expand="md">
                 <div className="container">
                 <NavbarToggler onClick={this.toggleNav}/>
                       <NavbarBrand style={{color:"black"}}className="mr-auto " href="/">
@@ -66,7 +72,7 @@ class Header extends Component{
                               </NavLink>
                           </NavItem>
                           <NavItem>
-                              <NavLink onClick={fun} className="nav-link " to="/menu">
+                              <NavLink onFocus={this.fun} className="nav-link " to="/menu">
                                   <span className="fa fa-list fa-lg"></span> DISHES MENU
                               </NavLink>
                           </NavItem>
