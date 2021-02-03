@@ -1,6 +1,4 @@
-body{
-    /* background-color:rosybrown; */
-}
+
 .row-header{
     margin:0px auto;
     padding:0px auto;
@@ -40,7 +38,20 @@ address{
     
     
 }
-span{
-   
+
+
+ .social-circle a:hover i{
+    
+    transform:rotate(360deg);
+    transition: all 0.75s;
 }
 
+ .social-circle i{
+color:black;
+ transition:  0.75s; 
+}
+
+.anim:hover{
+transform:rotate3d(1,1,1,360deg);
+transition: all 0.75s;
+}

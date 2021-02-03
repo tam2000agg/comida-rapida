@@ -13,9 +13,9 @@ function Footer (props)
                     <h5 >Links</h5>
                     <ul className="list-unstyled">
                         <li ><Link to="/home" style={{color:"black"}}>HOME</Link></li>
-                        <li style={{color:"black"}} ><Link to="/aboutus">ABOUT US</Link></li>
-                        <li style={{color:"black"}}><Link to="/menu">MENU</Link></li>
-                        <li style={{color:"black"}}><Link to="/contactus">CONTACT US</Link></li>
+                        <li  ><Link to="/aboutus" style={{color:"black"}}>ABOUT US</Link></li>
+                        <li ><Link to="/menu" style={{color:"black"}}>MENU</Link></li>
+                        <li ><Link to="/contactus" style={{color:"black"}}>CONTACT US</Link></li>
                     </ul>
                 </div>
                 <div className="col-5 ml-auto">
@@ -26,12 +26,12 @@ function Footer (props)
 		              HONG KONG<br />
 		              <i className="fa fa-phone fa-lg"></i>: +852 1234 5678<br />
 		              <i className="fa fa-fax fa-lg"></i>: +852 8765 4321<br />
-		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">
+		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net" style={{color:"black"}}>
                          confusion@food.net</a>
                     </address>
                 </div>
                 <div className="col-12 col-md-4 align-self-center py-3">
-                    <div className="text-center">
+                    <div className="text-center social-circle">
                         <a className="btn btn-social-icon btn-google" href="http://google.com/+"><i className="fa fa-google-plus"></i></a>
                         <a className="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i className="fa fa-facebook"></i></a>
                         <a className="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i className="fa fa-linkedin"></i></a>

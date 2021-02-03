@@ -30,7 +30,7 @@ class Contact extends Component {
    alert("Current State is: "+JSON.stringify(this.state));
 //    var item=document.getElementById("firstname");
 //    alert(item.value);
-   event.preventDefault();
+  // event.preventDefault();
    }
 
 handleInputChange(event)

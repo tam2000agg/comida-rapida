@@ -1,9 +1,11 @@
 import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle,Breadcrumb,BreadcrumbItem, CardHeader, CardSubtitle, CardBody} from 'reactstrap';
 import{Link} from 'react-router-dom';
+
 function Menurender({dish})
 {
     return(
+        <div className="anim">
                 <Card className="mb-sm-3 mb-md-0" style={{background:"lightgrey"}}>
                     <CardHeader>
                         <CardTitle ><b>{dish.name}</b></CardTitle>
@@ -24,6 +26,7 @@ function Menurender({dish})
                         </div>
                         </CardBody>
                 </Card>
+                </div>
      );
 }
 
@@ -40,7 +43,8 @@ function Menu(props)
         });
 
         return(
-            <div className="container">
+            <div style={{background:"url('/assets/images/image6.jpg')",backgroundSize:"certain"}}>
+            <div className="container " >
                 <div className="row">
                     <Breadcrumb>
                     <BreadcrumbItem>
@@ -59,6 +63,7 @@ function Menu(props)
                      
                 </div>
                 
+            </div>
             </div>
         );
 

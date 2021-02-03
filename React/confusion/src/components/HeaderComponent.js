@@ -72,7 +72,7 @@ class Header extends Component{
                               </NavLink>
                           </NavItem>
                           <NavItem>
-                              <NavLink onFocus={this.fun} className="nav-link " to="/menu">
+                              <NavLink onClick={this.fun} className="nav-link " to="/menu">
                                   <span className="fa fa-list fa-lg"></span> DISHES MENU
                               </NavLink>
                           </NavItem>

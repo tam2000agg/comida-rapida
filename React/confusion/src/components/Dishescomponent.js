@@ -1,13 +1,26 @@
 import React,{Component} from 'react';
-import {Media,Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle, CardSubtitle, CardFooter} from 'reactstrap';
+import {Media,Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle, CardSubtitle, CardFooter,Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
+import Commentform from './Commentformcomponent';
+
 class DishComponent extends Component {
-    
+    constructor(props)
+    {
+        super(props)
+        this.state={
+            
+            isModalOpen: false
+                
+            }
+        }
+        toggleModal=()=>{
+            this.setState({
+              isModalOpen: !this.state.isModalOpen
+            });
+          }
     render()
     {
-        
-
-        if(this.props.dish!=null)
+          if(this.props.dish!=null)
         {  
            const comments =this.props.comments.map(comment=>{
                return (
@@ -50,6 +63,12 @@ class DishComponent extends Component {
                     <Media list>
                        {comments} 
                     </Media>
+
+            <a className="btn btn-outline-dark"  onClick={this.toggleModal}>
+                <span className="fa fa-pencil"></span> Submit Comment
+            </a>
+
+            <Commentform isModalOpen={this.state.isModalOpen} onClick={()=>{this.toggleModal()}}></Commentform>
                   
                 </div>
                 </div>
