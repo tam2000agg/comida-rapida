@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Redirect ,useHistory} from 'react-router-dom';
 import {Row,Label,Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 
@@ -7,29 +8,27 @@ import {Row,Label,Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
  const maxLength = (len) => (val) => !(val) || (val.length <= len);
  const minLength = (len) => (val) => !(val) || (val.length >= len) ;
 
+ 
+ function handleSubmit(values,onClick,addComment,dishId,history) 
+ {
+    onClick();
+    addComment(dishId,values.rating,values.name,values.comment);
+   
+    history.push('/home');     
+ }
+ 
+function Commentform (props) {
+    
+    let history = useHistory();  //react hooks are always used in function component 
+ 
+  
 
-class Commentform extends Component {
 
-
-    handleSubmit=(event) =>
-    {
-        this.props.onClick();
-        alert('Current State is: '+ this.name.value);
-        //event.preventDefault();
-    }
-
-    // handleSubmit(values) {
-    //    this.props.onClick();
-    //     alert('Current State is: ' + JSON.stringify(values));
-    //     event.preventDefault();  
-    // }
-
-render(){
     return(
-        <Modal isOpen={this.props.isModalOpen} toggle={this.props.onClick} >
-        <ModalHeader toggle={this.props.onClick}>Submit Comment</ModalHeader>
+        <Modal isOpen={props.isModalOpen} toggle={props.onClick} >
+        <ModalHeader toggle={props.onClick}>Submit Comment</ModalHeader>
         <ModalBody>
-        <LocalForm onSubmit={this.handleSubmit} >
+        <LocalForm onSubmit={(values)=>handleSubmit(values,props.onClick,props.addComment,props.dishId,history)} >
                 <Row className="form-group">
                     <Label htmlFor="rating">Rating</Label>
                     <Control.select model=".rating" id="rating" name="rating"
@@ -46,7 +45,7 @@ render(){
                 <Row className="form-group">
                     <Label htmlFor="name">Your Name</Label>
                     <Control.text model=".name" id="name" name="name"  className="form-control"
-                    innerRef={(input) => this.name = input}
+                 
                     validators={{
                         required,
                         minLength: minLength(3),
@@ -74,7 +73,7 @@ render(){
         </ModalBody>
     </Modal>
     );
-    }
+    
 
 
 

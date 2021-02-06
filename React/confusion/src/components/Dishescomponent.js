@@ -68,7 +68,10 @@ class DishComponent extends Component {
                 <span className="fa fa-pencil"></span> Submit Comment
             </a>
 
-            <Commentform isModalOpen={this.state.isModalOpen} onClick={()=>{this.toggleModal()}}></Commentform>
+            <Commentform isModalOpen={this.state.isModalOpen} onClick={()=>{this.toggleModal()}} 
+            addComment={this.props.addComment}
+            dishId={this.props.dish.id}
+            ></Commentform>
                   
                 </div>
                 </div>

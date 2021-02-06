@@ -3,6 +3,7 @@
   <head>
     <script>
     let imageid=1;
+    setInterval(changeimage,3000);
     function changeimage()
     {
       if(imageid===1)
@@ -25,7 +26,7 @@
         document.getElementById("myimage").src="./assets/images/image2.jpg";
          imageid=1;
       }
-      setInterval(changeimage,3000);
+      
     }
     </script>
     <meta charset="utf-8" />
@@ -43,8 +44,8 @@
    
     <title>React App</title>
   </head>
-  <body  style="font-weight: bold" onload="changeimage()">
-    <div style="opacity: 0.5;position:fixed ;width:100%;height:100%"><img height="100%"width="100%" id="myimage" src=""/></div>
+  <body  style="font-weight: bold" >
+    <div style="opacity: 0.5;position:fixed ;width:100%;height:100%"><img height="100%"width="100%" id="myimage" src="./assets/images/image2.jpg"/></div>
     
     <div id="root"></div>
     
