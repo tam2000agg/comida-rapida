@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {Media,Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle, CardSubtitle, CardFooter,Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import Commentform from './Commentformcomponent';
-
+import { Loading } from './LoadingComponent';
 class DishComponent extends Component {
     constructor(props)
     {
@@ -20,7 +20,25 @@ class DishComponent extends Component {
           }
     render()
     {
-          if(this.props.dish!=null)
+        if (this.props.isLoading) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        else if (this.props.errMess) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <h4>{this.props.errMess}</h4>
+                    </div>
+                </div>
+            );
+        }
+         else  if(this.props.dish!=null)
         {  
            const comments =this.props.comments.map(comment=>{
                return (

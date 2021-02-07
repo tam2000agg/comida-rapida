@@ -1,6 +1,8 @@
 
 import {Component} from 'react';
 import {Button,Form,FormGroup,Label,Input,Col,FormFeedback} from 'reactstrap';
+import { Control ,actions } from 'react-redux-form';
+
 class Contact extends Component {
    
     constructor(props){
@@ -28,6 +30,7 @@ class Contact extends Component {
    handleSubmit=function(event)
    {
    alert("Current State is: "+JSON.stringify(this.state));
+   this.props.resetFeedbackForm();
 //    var item=document.getElementById("firstname");
 //    alert(item.value);
   // event.preventDefault();
@@ -127,13 +130,13 @@ validate(firstname, lastname, telnum, email) {
                     <h3>Send us your feedback</h3>
                 </div>
                 <div className="col-12 col-md-9">
-                    <Form>
+                <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
                         <FormGroup row>
                             <Label htmlFor="firstname" md={2}>First Name</Label>
                             <Col md={10}>
                             <Input type="text" id="firstname" name="firstname"
                                         placeholder="First Name"
-                                        value={this.state.firstname}
+                                        // value={this.state.firstname}
                                         valid={errors.firstname === ''}
                                         invalid={errors.firstname !== ''}
                                         onFocus={this.handleBlur}
@@ -146,7 +149,7 @@ validate(firstname, lastname, telnum, email) {
                             <Col md={10}>
                             <Input type="text" id="lastname" name="lastname"
                                         placeholder="Last Name"
-                                        value={this.state.lastname}
+                                       // value={this.state.lastname}
                                         valid={errors.lastname === ''}
                                         invalid={errors.lastname !== ''}
                                         onFocus={this.handleBlur}
@@ -160,7 +163,7 @@ validate(firstname, lastname, telnum, email) {
                             <Col md={10}>
                             <Input type="tel" id="telnum" name="telnum"
                                         placeholder="Tel. Number"
-                                        value={this.state.telnum}
+                                       // value={this.state.telnum}
                                         valid={errors.telnum === ''}
                                         invalid={errors.telnum !== ''}
                                         onFocus={this.handleBlur}
@@ -173,7 +176,7 @@ validate(firstname, lastname, telnum, email) {
                             <Col md={10}>
                             <Input type="email" id="email" name="email"
                                         placeholder="Email"
-                                        value={this.state.email}
+                                       // value={this.state.email}
                                         valid={errors.email === ''}
                                         invalid={errors.email !== ''}
                                         onFocus={this.handleBlur}
@@ -187,7 +190,7 @@ validate(firstname, lastname, telnum, email) {
                                         <Label check>
                                             <Input type="checkbox"
                                                 name="agree"
-                                                checked={this.state.agree}
+                                                //checked={this.state.agree}
                                                 onChange={this.handleInputChange} /> {' '}
                                             <strong>May we contact you?</strong>
                                         </Label>
@@ -195,7 +198,7 @@ validate(firstname, lastname, telnum, email) {
                                 </Col>
                                 <Col md={{size: 3, offset: 1}}>
                                     <Input type="select" name="contactType"
-                                            value={this.state.contactType}
+                                          //  value={this.state.contactType}
                                             onChange={this.handleInputChange}>
                                         <option>Tel.</option>
                                         <option>Email</option>
@@ -207,13 +210,13 @@ validate(firstname, lastname, telnum, email) {
                                 <Col md={10}>
                                     <Input type="textarea" id="message" name="message"
                                         rows="12"
-                                        value={this.state.message}
+                                       // value={this.state.message}
                                         onChange={this.handleInputChange}></Input>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
                                 <Col md={{size: 10, offset: 2}}>
-                                    <Button onClick={this.handleSubmit} type="submit" color="primary">
+                                    <Button type="submit" color="primary">
                                         Send Feedback
                                     </Button>
                                 </Col>
