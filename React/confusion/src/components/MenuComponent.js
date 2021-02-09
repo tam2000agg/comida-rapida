@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle,Breadcrumb,BreadcrumbItem, CardHeader, CardSubtitle, CardBody} from 'reactstrap';
 import{Link} from 'react-router-dom';
+import {baseUrl} from "../shared/baseurl";
 import { Loading } from './LoadingComponent';
 function Menurender({dish})
 {
@@ -12,7 +13,7 @@ function Menurender({dish})
                     </CardHeader>
                     <Link to ={`/menu/${dish.name}/${dish.id}`}>
                     
-                        <CardImg  src={dish.image} alt={dish.name}></CardImg>
+                        <CardImg  src={baseUrl+ dish.image} alt={dish.name}></CardImg>
                    
                     </Link>
                     <CardBody>

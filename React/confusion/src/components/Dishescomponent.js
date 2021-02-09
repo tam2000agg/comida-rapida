@@ -3,6 +3,7 @@ import {Media,Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle, CardSubti
 import {Link} from 'react-router-dom';
 import Commentform from './Commentformcomponent';
 import { Loading } from './LoadingComponent';
+import {baseUrl} from "../shared/baseurl";
 class DishComponent extends Component {
     constructor(props)
     {
@@ -60,7 +61,7 @@ class DishComponent extends Component {
                 <div className="col-12 col-md-5 m-2">  
                     <Card> 
                         <Link to="/menu">
-                    <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name}></CardImg>
+                    <CardImg width="100%" src={baseUrl+ this.props.dish.image} alt={this.props.dish.name}></CardImg>
                     </Link>
                     
                     <CardBody>
@@ -87,7 +88,7 @@ class DishComponent extends Component {
             </a>
 
             <Commentform isModalOpen={this.state.isModalOpen} onClick={()=>{this.toggleModal()}} 
-            addComment={this.props.addComment}
+            PostComment={this.props.PostComment}
             dishId={this.props.dish.id}
             ></Commentform>
                   

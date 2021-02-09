@@ -1,17 +1,22 @@
 import React from 'react';
 import {Card,CardImg ,CardText,CardBody,CardTitle,CardSubtitle} from 'reactstrap';
 import { Loading } from './LoadingComponent';
+import {baseUrl} from "../shared/baseurl";
 function Home(props)
 {
     return (
         <div className="container">
             {/* <div className="row "> */}
               {/* <div className="col-12 col-md m-4"> */}
-                  <RenderCard items={props.dish} isLoading={props.dishesLoading} errMess={props.dishesErrMess}/>
+                  <RenderCard items={props.dish} 
+                   isLoading={props.dishesLoading}
+                   errMess={props.dishesErrMess}/>
                   {/* </div>   */}
                   <hr ></hr>
                   {/* <div className="col-12 col-md m-4"> */}
-                  <RenderCard items={props.prom}/>
+                  <RenderCard items={props.prom} 
+                  isLoading={props.promosLoading} 
+                  errMess={props.promosErrMess}/>
                   <hr ></hr>
                   {/* </div>   */}
                   {/* <div className="col-12 col-md m-4"> */}
@@ -30,8 +35,8 @@ function RenderCard({items, isLoading, errMess})
         return (
             
             <div className="col-12 col-md-4 m-1">
-        <Card style={{border:"3px solid black"}}>
-            <CardImg src={item.image}/>
+            <Card style={{border:"3px solid black"}}>
+            <CardImg src={baseUrl+item.image}/>
             <CardBody>
                 <CardTitle>{item.name}</CardTitle>
                 {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle>:null}
