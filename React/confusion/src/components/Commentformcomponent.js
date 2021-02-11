@@ -12,9 +12,11 @@ import {Row,Label,Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
   function handleSubmit(values,onClick,PostComment,dishId,history)
  {
     onClick();
+
     PostComment(dishId,values.rating,values.name,values.comment);
-   
-    history.push('/home');     
+    
+
+    //history.push('/home');     
  }
  
 function Commentform (props) {
@@ -54,7 +56,7 @@ function Commentform (props) {
                     <Errors
                                         className="text-danger"
                                         model=".name"
-                                        show={true}
+                                        show="touched"
                                         messages={{
                                             required: 'Required',
                                             minLength: 'Must be greater than 2 characters',

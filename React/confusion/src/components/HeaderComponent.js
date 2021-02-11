@@ -35,16 +35,16 @@ class Header extends Component{
         event.preventDefault();
 
      }
-      fun()
-    { 
-        if(document.querySelector('.jumbotron').style.backgroundColor !=="red") 
-        document.querySelector('.jumbotron').style.backgroundColor="red";
+    //   fun()
+    // { 
+    //     if(document.querySelector('.jumbotron').style.backgroundColor !=="red") 
+    //     document.querySelector('.jumbotron').style.backgroundColor="red";
         
-       else
-        document.querySelector('.jumbotron').style.backgroundColor="lightgrey";
+    //    else
+    //     document.querySelector('.jumbotron').style.backgroundColor="lightgrey";
          
 
-    }
+    // }
     render(){
       
         
@@ -72,7 +72,7 @@ class Header extends Component{
                               </NavLink>
                           </NavItem>
                           <NavItem>
-                              <NavLink onClick={this.fun} className="nav-link " to="/menu">
+                              <NavLink  className="nav-link " to="/menu">
                                   <span className="fa fa-list fa-lg"></span> DISHES MENU
                               </NavLink>
                           </NavItem>

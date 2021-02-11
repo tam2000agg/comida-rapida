@@ -27,9 +27,9 @@ class Contact extends Component {
       this.handleInputChange=this.handleInputChange.bind(this);
    }
 
-   handleSubmit=function(event)
+   handleSubmit=(values)=>
    {
-   alert("Current State is: "+JSON.stringify(this.state));
+   alert("Current State is: "+JSON.stringify(values));
    this.props.resetFeedbackForm();
 //    var item=document.getElementById("firstname");
 //    alert(item.value);
@@ -136,7 +136,7 @@ validate(firstname, lastname, telnum, email) {
                             <Col md={10}>
                             <Input type="text" id="firstname" name="firstname"
                                         placeholder="First Name"
-                                        // value={this.state.firstname}
+                                       // value={this.state.firstname}
                                         valid={errors.firstname === ''}
                                         invalid={errors.firstname !== ''}
                                         onFocus={this.handleBlur}
@@ -149,7 +149,7 @@ validate(firstname, lastname, telnum, email) {
                             <Col md={10}>
                             <Input type="text" id="lastname" name="lastname"
                                         placeholder="Last Name"
-                                       // value={this.state.lastname}
+                                        //value={this.state.lastname}
                                         valid={errors.lastname === ''}
                                         invalid={errors.lastname !== ''}
                                         onFocus={this.handleBlur}
@@ -176,7 +176,7 @@ validate(firstname, lastname, telnum, email) {
                             <Col md={10}>
                             <Input type="email" id="email" name="email"
                                         placeholder="Email"
-                                       // value={this.state.email}
+                                       //value={this.state.email}
                                         valid={errors.email === ''}
                                         invalid={errors.email !== ''}
                                         onFocus={this.handleBlur}
@@ -190,7 +190,7 @@ validate(firstname, lastname, telnum, email) {
                                         <Label check>
                                             <Input type="checkbox"
                                                 name="agree"
-                                                //checked={this.state.agree}
+                                                checked={this.state.agree}
                                                 onChange={this.handleInputChange} /> {' '}
                                             <strong>May we contact you?</strong>
                                         </Label>
@@ -198,7 +198,7 @@ validate(firstname, lastname, telnum, email) {
                                 </Col>
                                 <Col md={{size: 3, offset: 1}}>
                                     <Input type="select" name="contactType"
-                                          //  value={this.state.contactType}
+                                           //value={this.state.contactType}
                                             onChange={this.handleInputChange}>
                                         <option>Tel.</option>
                                         <option>Email</option>
@@ -210,7 +210,7 @@ validate(firstname, lastname, telnum, email) {
                                 <Col md={10}>
                                     <Input type="textarea" id="message" name="message"
                                         rows="12"
-                                       // value={this.state.message}
+                                      //  value={this.state.message}
                                         onChange={this.handleInputChange}></Input>
                                 </Col>
                             </FormGroup>

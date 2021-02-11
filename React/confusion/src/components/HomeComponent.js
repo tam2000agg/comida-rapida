@@ -20,7 +20,9 @@ function Home(props)
                   <hr ></hr>
                   {/* </div>   */}
                   {/* <div className="col-12 col-md m-4"> */}
-                  <RenderCard items={props.leader}/>
+                  <RenderCard items={props.leader}
+                  isLoading={props.leadersLoading}
+                  errMess={props.leadersErrMess}/>
                   <hr></hr>
                   {/* </div>   */}
             {/* </div> */}

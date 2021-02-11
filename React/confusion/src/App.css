@@ -54,4 +54,5 @@ color:black;
 .anim:hover{
 transform:rotate3d(1,1,1,360deg);
 transition: all 0.75s;
+color:
 }
