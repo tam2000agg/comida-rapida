@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg,  CardTitle,Breadcrumb,BreadcrumbItem, CardHeader, CardSubtitle, CardBody, CardImgOverlay} from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle,Breadcrumb,BreadcrumbItem, CardHeader, CardSubtitle, CardBody} from 'reactstrap';
 import{Link} from 'react-router-dom';
 import {baseUrl} from "../shared/baseurl";
 import { Loading } from './LoadingComponent';
@@ -7,16 +7,18 @@ function Menurender({dish})
 {
     return(
         <div className="anim">
-                <Card className="mb-sm-3 mb-md-0" style={{background:"lightgrey"}}>
+                <Card className="mb-sm-3 mb-md-0 gett" style={{background:"lightgrey"}}>
                     <CardHeader>
                         <CardTitle ><b>{dish.name}</b></CardTitle>
                     </CardHeader>
                     <Link to ={`/menu/${dish.name}/${dish.id}`}>
                     
-                        <CardImg className="image" src={baseUrl+ dish.image} alt={dish.name}>
-                        <CardImgOverlay>John Doe</CardImgOverlay>
-                        </CardImg>
-                   
+                        <CardImg className="imagee" src={baseUrl+ dish.image} alt={dish.name}></CardImg>
+                        <CardImgOverlay>
+                            <div class="middle">
+                               <CardTitle className="text">Tamanna</CardTitle>
+                           </div>
+                    </CardImgOverlay>
                     </Link>
                     <CardBody>
                        <div className="row" >
