@@ -43,7 +43,8 @@ class DishComponent extends Component {
         {  
            const comments =this.props.comments.map(comment=>{
                return (
-                   <div key={comment.id} >
+                   
+                   <div key={comment.id}  >
                        <Media tag="li"> 
                        <p>{comment.comment}</p>
                        </Media>
@@ -56,10 +57,11 @@ class DishComponent extends Component {
             });
         
             return(
-                <div className="container">
+                <div className="dishes" style={{padding:"70px"}}>
+                <div className="container"style={{backgroundColor:'darkseagreen',padding:"20px"}} >
                 <div className="row ">
-                <div className="col-12 col-md-5 m-2">  
-                    <Card> 
+                <div className="col-12 col-md-5 m-2 ">  
+                    <Card > 
                         <Link to="/menu">
                     <CardImg width="100%" src={baseUrl+ this.props.dish.image} alt={this.props.dish.name}></CardImg>
                     </Link>
@@ -92,6 +94,7 @@ class DishComponent extends Component {
             dishId={this.props.dish.id}
             ></Commentform>
                   
+                </div>
                 </div>
                 </div>
                 </div>

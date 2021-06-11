@@ -1,9 +1,9 @@
-
 import {Component} from 'react';
 import {Button,Form,FormGroup,Label,Input,Col,FormFeedback} from 'reactstrap';
-import { Control ,actions } from 'react-redux-form';
+import { Control , actions } from 'react-redux-form';
 
-class Contact extends Component {
+class Contact extends Component 
+{
    
     constructor(props){
        super(props);
@@ -25,15 +25,17 @@ class Contact extends Component {
       
       this.handleSubmit=this.handleSubmit.bind(this);
       this.handleInputChange=this.handleInputChange.bind(this);
-   }
+}
 
-   handleSubmit=(values)=>
+handleSubmit=(values)=>
    {
+
    alert("Current State is: "+JSON.stringify(values));
    this.props.resetFeedbackForm();
-//    var item=document.getElementById("firstname");
-//    alert(item.value);
-  // event.preventDefault();
+   //    var item=document.getElementById("firstname");
+  //    alert(item.value);
+ // event.preventDefault();
+   
    }
 
 handleInputChange(event)
@@ -96,9 +98,9 @@ validate(firstname, lastname, telnum, email) {
     render(){
        const errors = this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
     return(
-       
-        <div className="container">
-            <div className="row row-content">
+       <div className="contact" style={{backgroundColor:"rgb(110, 170, 120)",padding:"70px"}}>
+        <div className="container" >
+            <div className="row row-content" style={{backgroundColor:"darkseagreen",padding:"20px"}}>
                 <div className="col-12">
                 <h3>Location Information</h3>
                 </div>
@@ -125,7 +127,7 @@ validate(firstname, lastname, telnum, email) {
                     </div>
                 </div>
             </div>
-            <div className="row row-content">
+            <div className="row row-content" style={{backgroundColor:"darkseagreen",padding:"30px",marginTop:"50px"}}>
                 <div className="col-12">
                     <h3>Send us your feedback</h3>
                 </div>
@@ -224,6 +226,7 @@ validate(firstname, lastname, telnum, email) {
                     </Form>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Jumbotron } from 'reactstrap';
+
 import {Link} from 'react-router-dom';
 
 function Footer (props)
 {
     return (
     
-<div className="footer mt-4 pt-3 ">
+<div className="footer mt-4 pt-3" style={{margin:"0px"}}>
         <div className="container">
             <div className="row justify-content-center">             
                 <div className="col-5 mr-auto">

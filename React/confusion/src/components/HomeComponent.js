@@ -1,77 +1,28 @@
 import React from 'react';
-import {Card,CardImg ,CardText,CardBody,CardTitle,CardSubtitle} from 'reactstrap';
-import { Loading } from './LoadingComponent';
 import {baseUrl} from "../shared/baseurl";
-function Home(props)
-{
+import { Link } from 'react-router-dom';
+
+export const Home = () => {
     return (
-        <div className="container">
-            {/* <div className="row "> */}
-              {/* <div className="col-12 col-md m-4"> */}
-                  <RenderCard items={props.dish} 
-                   isLoading={props.dishesLoading}
-                   errMess={props.dishesErrMess}/>
-                  {/* </div>   */}
-                  <hr ></hr>
-                  {/* <div className="col-12 col-md m-4"> */}
-                  <RenderCard items={props.prom} 
-                  isLoading={props.promosLoading} 
-                  errMess={props.promosErrMess}/>
-                  <hr ></hr>
-                  {/* </div>   */}
-                  {/* <div className="col-12 col-md m-4"> */}
-                  <RenderCard items={props.leader}
-                  isLoading={props.leadersLoading}
-                  errMess={props.leadersErrMess}/>
-                  <hr></hr>
-                  {/* </div>   */}
-            {/* </div> */}
-
-        </div>
-    );
-}
-
-function RenderCard({items, isLoading, errMess})
-{
-    const m=items.map((item)=>{
-        return (
-            
-            <div className="col-12 col-md-4 m-1">
-            <Card style={{border:"3px solid black"}}>
-            <CardImg src={baseUrl+item.image}/>
-            <CardBody>
-                <CardTitle>{item.name}</CardTitle>
-                {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle>:null}
-                <CardText>{item.description}</CardText>
-            </CardBody>
-        </Card>
-        </div>
-        
-        );
-            });
-    
-    
-         if (isLoading)
-            {
-                return(
-                    <Loading />
-                      );
-            }
-
-         else if (errMess)
-          {
-                return(
-                        <h4>{errMess}</h4>
-                     );
-          }
-    
-         else{
-                return (
-                    <div className="row">
-                        {m}
+        <div className="home">
+            <div className="home__content">
+                <div className="container-fluid">
+                    <div className="row home__box justify-content-lg-around justify-content-center shadow">
+                        <div className="col-10 col-sm-9 col-md-7 col-lg-6 col-xl-5">
+                            <div className="flex py-5 my-2">        
+                                <h1>Welcome To The COMIDA RÁPIDA</h1>
+                                <p>If you like Streetfood, you will love Comida Rápida</p>
+                                <Link to="/aboutus" className="btn btn-lg __link">Learn More</Link>
+                            </div>
+                        </div>
+                        <div className="col-10 col-sm-9 col-md-4 col-lg-5">
+                            <div className="home__img py-4 px-1 row align-items-center justify-content-center">
+                                <img src={baseUrl + '/images/donuts.jpg'} alt='DONUTS' />
+                            </div>
+                        </div>
                     </div>
-                    );
-             }
-            
+                </div>
+            </div>
+        </div>
+    )
 }
-export default Home;

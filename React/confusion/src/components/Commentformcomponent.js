@@ -27,7 +27,7 @@ function Commentform (props) {
 
 
     return(
-        <Modal isOpen={props.isModalOpen} toggle={props.onClick} >
+        <Modal isOpen={props.isModalOpen} toggle={props.onClick}>
         <ModalHeader toggle={props.onClick}>Submit Comment</ModalHeader>
         <ModalBody>
         <LocalForm onSubmit={(values)=>handleSubmit(values,props.onClick,props.PostComment,props.dishId,history)} >
@@ -56,7 +56,7 @@ function Commentform (props) {
                     <Errors
                                         className="text-danger"
                                         model=".name"
-                                        show="touched"
+                                        show={(field) => field.touched}
                                         messages={{
                                             required: 'Required',
                                             minLength: 'Must be greater than 2 characters',

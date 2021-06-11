@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import Header from './HeaderComponent';
+import Header from './NavbarComponent';
 import Footer from './FooterComponent';
 import Menu from './MenuComponent';
 import DishComponent from './Dishescomponent';
 import Contact from './ContactComponent';
-import Home from './HomeComponent';
+import {Home} from './HomeComponent';
 import About from './AboutComponent';
+import {Head}from './HeaderComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { actions } from 'react-redux-form';
 
-import { PostComment,fetchComments, fetchPromos,fetchDishes, fetchLeaders} from '../redux/ActionCreators';
-
-
+import {PostComment,fetchComments, fetchPromos,fetchDishes,fetchLeaders} from '../redux/ActionCreators';
 
 const mapStateToProps = (state) => {
     return {
@@ -57,20 +56,8 @@ class Main extends Component {
         const Homepage = () => {
             return (
                 <>
-               
-                       <Home dish={this.props.dishes.dishes.filter((dish) => dish.featured)}
-                        dishesLoading={this.props.dishes.isLoading}
-                        dishesErrMess={this.props.dishes.errMess}
-                        prom={this.props.promotions.promotions.filter((promo) => promo.featured)}
-                        promosLoading={this.props.promotions.isLoading}
-                        promosErrMess={this.props.promotions.errMess}
-                        leader={this.props.leaders.leaders.filter((lead) => lead.featured)}
-                        leadersLoading={this.props.leaders.isLoading}
-                        leadersErrMess={this.props.leaders.errMess}
-
-                    />
-
-                    {/* optional we can put any no.of components that we want to call with home component  */}
+                       <Head></Head>
+                        <Home></Home>
                 </>
             );
 
@@ -91,7 +78,8 @@ class Main extends Component {
 
             <div>
                
-               <Header />
+               <Header /> 
+               
                 <Switch>
                     <Route path="/home" component={Homepage} />
                     <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes}/>} />
